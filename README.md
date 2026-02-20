@@ -6,10 +6,10 @@ Automatically generates [FAQ schema markup](https://schema.org/FAQPage) (`applic
 
 ## Installation
 
-Add the following `<script>` tag to your page's `<head>` or before `</body>`. Replace `@1.0.0` with the latest release version.
+Add the following `<script>` tag to your page's `<head>` or before `</body>`. Replace `@1.0.1` with the latest release version.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/flowjoystudio/auto-faq-schema@1.0.0/auto-faq-schema.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/flowjoystudio/auto-faq-schema@1.0.1/auto-faq-schema.js"></script>
 ```
 
 ---

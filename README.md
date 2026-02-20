@@ -97,9 +97,3 @@ Both methods can be used on the same page across different parent elements.
 - The heading-based method requires the exact trigger text "FAQ" or "Frequently Asked Questions" to be present as a heading
 - If both methods are used on the same `faq=parent` element, questions may be duplicated in the schema output — use one method per parent
 - Answer content is always output as plain text (HTML tags are stripped)
-
----
-
-## License
-
-MIT

@@ -6,10 +6,10 @@ Automatically generates [FAQ schema markup](https://schema.org/FAQPage) (`applic
 
 ## Installation
 
-Add the following `<script>` tag to your page's `<head>` or before `</body>`. Replace `@1.0.2` with the latest release version.
+Add the following `<script>` tag to your page's `<head>` or before `</body>`. Replace `@1.0.0` with the latest release version.
 
 ```html
-<script defer src="https://cdn.jsdelivr.net/gh/flowjoystudio/auto-faq-schema@1.0.2/auto-faq-schema.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/flowjoystudio/auto-faq-schema@1.0.0/auto-faq-schema.js"></script>
 ```
 
 ---
@@ -81,14 +81,29 @@ Both methods can be used on the same page across different parent elements.
 
 ## Webflow setup
 
-**Attribute-based method**
-- Add `faq` / `parent` as a custom attribute on the collection list wrapper
-- Add `faq` / `question` on the question element
-- Add `faq` / `answer` on the answer element (can be a rich text block)
+### Step 1 — Add the script
 
-**Heading-based method**
-- Add `faq` / `parent` directly on the rich text element
-- Structure your rich text with an "FAQ" heading followed by question headings (ending in `?`) and paragraph answers
+Paste the `<script>` tag into **Project Settings → Custom Code → Head Code**, or into **Page Settings → Custom Code → Before </body> tag** for page-specific use.
+
+### Step 2 — Add attributes to your FAQ elements
+
+In the Webflow Designer, open the **Navigator** panel (Cmd/Ctrl + U) to locate the correct elements. Select each element, open the **Element Settings** panel (D key), scroll down to **Custom Attributes**, and add the attribute name and value.
+
+**Option A — Attribute method (recommended for CMS collection lists)**
+
+| Element | Where to find it in Navigator | Attribute | Value |
+|---|---|---|---|
+| FAQ section wrapper | The Div Block or Section wrapping all your FAQ items | `fj-faq` | `parent` |
+| Question element | The Heading or Text Block inside each FAQ item | `fj-faq` | `question` |
+| Answer element | The Text Block or Rich Text inside each FAQ item | `fj-faq` | `answer` |
+
+**Option B — Heading method (for rich text blocks)**
+
+| Element | Where to find it in Navigator | Attribute | Value |
+|---|---|---|---|
+| Rich Text block | The Rich Text element containing your FAQ content | `fj-faq` | `rich-text` |
+
+The script detects headings ending in `?` as questions and the following paragraph as the answer — no additional attributes needed inside the rich text.
 
 ---
 
@@ -97,3 +112,9 @@ Both methods can be used on the same page across different parent elements.
 - The heading-based method requires the exact trigger text "FAQ" or "Frequently Asked Questions" to be present as a heading
 - If both methods are used on the same `faq=parent` element, questions may be duplicated in the schema output — use one method per parent
 - Answer content is always output as plain text (HTML tags are stripped)
+
+---
+
+## License
+
+MIT
